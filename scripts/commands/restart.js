@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "restart",
+	name: "rast",
 	version: "7.0.0",
 	permission: 2,
 	credits: "ryuko",
