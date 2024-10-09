@@ -3,7 +3,7 @@ const fs = require("fs");
 const { createCanvas, loadImage } = require("canvas");
 
 module.exports.config = {
-  name: "spam",
+  name: "spem",
   version: "1.1.0",
   Permssion: 0,
   credits: "Md Fahim Islam",
