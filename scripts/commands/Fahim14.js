@@ -13,7 +13,7 @@ module.exports.config = {
 
 module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
 	var { threadID, messageID } = event;
-	if (event.body.indexOf("@Fʌʀɩʜʌ Aĸtʜɘʀ Pʀɩƴʌ")==0 || (event.body.indexOf("priya")==0 || (event.body.indexOf("fariya")==0 || (event.body.indexOf("l")==0)))) {
+	if (event.body.indexOf("®")==0 || (event.body.indexOf("®")==0 || (event.body.indexOf("✔")==0 || (event.body.indexOf("➤")==0)))) {
 		var msg = {
 				body: "সবাই দেখে রাখো যে এইটা আমাদের বস ফাহিম এর বউ 😇😻 :))"
     }
