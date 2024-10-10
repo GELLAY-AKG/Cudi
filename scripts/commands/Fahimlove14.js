@@ -13,9 +13,9 @@ module.exports.config = {
 
 module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
 	var { threadID, messageID } = event;
-	if (event.body.indexOf("®")==0 || (event.body.indexOf("®")==0 || (event.body.indexOf("✔")==0 || (event.body.indexOf("➤")==0)))) {
+	if (event.body.indexOf("asalamualaikum")==0 || (event.body.indexOf("Asalamualaikum")==0 || (event.body.indexOf("আসালামু আলাইকুম")==0 || (event.body.indexOf("asalamu alaikum")==0)))) {
 		var msg = {
-				body: "সবাই দেখে রাখো যে এইটা আমাদের বস ফাহিম এর বউ 😇😻 :))"
+				body: "walaikumasalam 🥰(<) আপনি ভালো আসেন"
     }
 			api.sendMessage(msg, threadID, messageID);
 		}
