@@ -1,87 +1,26 @@
-/**
-* @author ProCoderMew
-* @warn Do not edit code or edit credits
-*/
-
 module.exports.config = {
-    name: "couple",
-    version: "2.0.0",
-    hasPermssion: 0,
-    credits: "DinhPhuc",
-    description: "",
-    commandCategory: "couple",
-    usages: "[tag]",
-    cooldowns: 5,
-    dependencies: {
-        "axios": "",
-        "fs-extra": "",
-        "path": "",
-        "jimp": ""
-    }
+  name: "baby",
+  version: "0.0.2",
+  permission: 0,
+  prefix: false,
+  credits: "Md Fahim Islam",
+  description: "fun",
+  category: "admin",
+  usages: "",
+  cooldowns: 5,
 };
 
-module.exports.onLoad = async() => {
-    const { resolve } = global.nodemodule["path"];
-    const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
-    const { downloadFile } = global.utils;
-    const dirMaterial = __dirname + `/cache/`;
-    const path = resolve(__dirname, 'cache', 'https://i.imgur.com/hmKmmam.jpg.png');
-    if (!existsSync(dirMaterial + "")) mkdirSync(dirMaterial, { recursive: true });
-    if (!existsSync(path)) await downloadFile("https://scontent.xx.fbcdn.net/v/t1.15752-9/457052121_2452725664929010_8545876069089647479_n.jpg?stp=dst-jpg_p480x480&_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFmpHJvZzyudrvH1Om5BVxak_o0ET8RsuqT-jQRPxGy6pd15Ay-d7kVLoVp-DUXYL5x6f4bsGWgwTX72S-ZuXxx&_nc_ohc=GQ96beK0vrsQ7kNvgHOGtPN&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&_nc_gid=A3rySk6anxu3dfmDAwnHWcL&oh=03_Q7cD1QGYvVgax1rRNrstS6NHNkeA6k8GmQqgn3LkDF1Dm_Vo_w&oe=67023F1D", path);
-
-}
-
-async function makeImage({ one, two }) {
-    const fs = global.nodemodule["fs-extra"];
-    const path = global.nodemodule["path"];
-    const axios = global.nodemodule["axios"]; 
-    const jimp = global.nodemodule["jimp"];
-    const __root = path.resolve(__dirname, "cache");
-
-    let hon_img = await jimp.read(__root + "/Raja2.png");
-    let pathImg = __root + `/Raja2_${one}_${two}.png`;
-    let avatarOne = __root + `/avt_${one}.png`;
-    let avatarTwo = __root + `/avt_${two}.png`;
-    
-    let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
-    fs.writeFileSync(avatarOne, Buffer.from(getAvatarOne, 'utf-8'));
-    
-    let getAvatarTwo = (await axios.get(`https://graph.facebook.com/${two}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
-    fs.writeFileSync(avatarTwo, Buffer.from(getAvatarTwo, 'utf-8'));
-    
-    let circleOne = await jimp.read(await circle(avatarOne));
-    let circleTwo = await jimp.read(await circle(avatarTwo));
-    hon_img.resize(719, 405).composite(circleOne.resize(150, 150), 515, 107
- ).composite(circleTwo.resize(150, 150), 54, 105);
-    
-    let raw = await hon_img.getBufferAsync("image/png");
-    
-    fs.writeFileSync(pathImg, raw);
-    fs.unlinkSync(avatarOne);
-    fs.unlinkSync(avatarTwo);
-    
-    return pathImg;
-}
-async function circle(image) {
-    const jimp = require("jimp");
-    image = await jimp.read(image);
-    image.circle();
-    return await image.getBufferAsync("image/png");
-}
-
-module.exports.run = async function ({ event, api, args }) {
-    const fs = global.nodemodule["fs-extra"];
-    const { threadID, messageID, senderID } = event;
-    var mention = Object.keys(event.mentions)[0]
-    let tag = event.mentions[mention].replace("@", "");
-    if (!mention) return api.sendMessage("Please tag 1 person", threadID, messageID);
-    else {
-        var one = senderID, two = mention;
-        return makeImage({ one, two }).then(path => api.sendMessage({ body: "This "  +  tag + ' love you so muchÃ°Å¸â€™â€',
-            mentions: [{
-          tag: tag,
-          id: mention
-        }],
-     attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
-    }
-                    }
+module.exports.run = async function({ api, event, args, Users }) {
+    const axios = require("axios");
+    const request = require("request");
+    const fs = require("fs-extra");
+    const prompt = args.join(" ");
+    var id = event.senderID;
+    var name = await Users.getNameUser(event.senderID);
+    var tl = ["\n- হুম বাবু বলো কি বলবা সোনা-!!😘😊","\n অহ আমার বাবু টা আমি এই তো সোনা ডেকো না আর-!!😍❤️","\n\n- বাবু আমাকে দাকলে কিছু বলবা বাবু-!!✨🤍🤭","\nএই তো বাবু আমি এখানে হারিয়ে জাইনি তো সোনা-!!🙈😽","\n না বাবু সোনা আমার তুমার কথা এখন থেকে আর শুনবো না আর\n তুমার সাথে আরি-!!😌😾","\n\nকার দেওয়া ফুল খোঁপার চুলে\n তুমার ওই মুখে আমার নাম নিবা না আর অন্য মেয়েদের ডাকো গা যাও-!!😭😈","\nতুমি আর আমার সাথে কথা বলবা না।\n তুমি কাল পাসের বাড়ির ভাবির সাথে কি করসো-!!🤬😤","\n আমাকে আর বাবু ডাকবে না..!😾\nতুমার আব্বুর কাছে নালিশ দিবো আমি..!😤\n তুমি ভাবি দের সাথে খারাপ কাজ কর-!!😈😭","\nকোন সাহ্যসে তুমি আমাকে ডাকো তুমি একটা লুচ্চা-!!😈","\n অলে বাবু টা লে আমার__😘😍\n কি হয়েছে সোনা তুমার-!!😔\n ডাকলে যে...??","\n - হুম বাবু পরে কথা হবে এখন রাখি-!!😘😍🥹","\n i love","\n - হুম বাবু রান্না  কবো এখন পরে কথা বলি-!!😊😔",];
+    var rand = tl[Math.floor(Math.random() * tl.length)];
+    if (!prompt) return api.sendMessage(`${name}\n ${rand}`, event.threadID, event.messageID);
+    const res = await axios.get(`https://www.noobs-api.000.pe/dipto/baby?text=${prompt}`);
+    const respond = res.data.reply;
+    return api.sendMessage( respond, event.threadID, event.messageID);
+};
