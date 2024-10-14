@@ -28,21 +28,15 @@ async function downloadMusicFromYoutube(link, path) {
         })
   return returnPromise
 }
-
 module.exports.config = {
-  name: "song", 
-  version: "1.0.0", 
-  permission: 0,
-  credits: "Nayan",
-  description: "example",
-  prefix: true,
-  category: "Media", 
-  usages: "user", 
-  cooldowns: 5,
-  dependencies: {
-		"ytdl-core":"",
-    "simple-youtube-api":""
-	}
+    name: "song",
+    version: "1.0.0",
+    hasPermssion: 0,
+    credits: "Fahim Islam",
+    description: "Phát nhạc thông qua link YouTube hoặc từ khoá tìm kiếm",
+    commandCategory: "tiện ích",
+    usages: "[searchMusic]",
+    cooldowns: 0
 };
 
 module.exports.handleReply = async function ({ api, event, handleReply }) {
@@ -115,4 +109,4 @@ module.exports.run = async function ({ api, event, args }) {
             return api.sendMessage('An error has occurred, please try again in a moment!!\n' + e, event.threadID, event.messageID);
         }
     }
-                                                                                                                                                                                                       }
+	}
