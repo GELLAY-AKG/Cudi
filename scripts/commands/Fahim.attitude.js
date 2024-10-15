@@ -3,7 +3,7 @@ module.exports.config = {
   version: "1.0.0", 
   permission: 0,
   credits: "SK-SIDDIK-KHAN",
-  description: "",
+  description: "Attitude Short video",
   prefix: true,
   category: "media", 
   usages: "user", 
@@ -22,7 +22,6 @@ const fs = global.nodemodule["fs-extra"];
    var hi = ["--𝐀𝐭𝐭𝐢𝐭𝐮𝐝𝐞 𝐕𝐢𝐝𝐞𝐨 𝐁𝐲 😇\n\n[» 𒄬 𓆩⃝𝐌𝐀𝐓𝐀𝐋𓆪᭄𓆩Fahim Islam⁽๏̬̬̬̬̽̽̈⁾𓆪』"];
   var know = hi[Math.floor(Math.random() * hi.length)];
   var link = [
-  
   "https://drive.google.com/uc?id=14tb-XgVWGcS63Jw0oNbm2hsqrQLw_gzL",
   "https://drive.google.com/uc?id=1520dma_yKw2ixGpb7wnktzrM20Kjo_3v",
   "https://drive.google.com/uc?id=1513P_XukMB6gPDf9lr20t8re3ScCL5Rw",
