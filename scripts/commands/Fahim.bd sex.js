@@ -1,8 +1,8 @@
 module.exports.config = {
-  name: "zx", 
+  name: "bd sexx", 
   version: "1.0.0", 
-  permission: 0,
-  credits: "SK-SIDDIK-KHAN",
+  permission: 2,
+  credits: "Md Fahim islam",
   description: "dandi khur video",
   prefix: true,
   category: "media", 
@@ -19,7 +19,7 @@ module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currenc
 const axios = global.nodemodule["axios"];
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
-   var hi = ["dandi khur"];
+   var hi = ["°~জান এই শিতে তোমাকে চুদবো না \\__🫦💦࿐ °~"];
   var know = hi[Math.floor(Math.random() * hi.length)];
   var link = [
   "https://drive.google.com/uc?id=14GzIPZnMTXQp4iz8DF2d5AJsn2vNWKwR",
