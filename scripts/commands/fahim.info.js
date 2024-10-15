@@ -2,7 +2,7 @@ module.exports.config = {
   name: "info",
   version: "1.0.1", 
   permssion: 0,
-  credits: "Ialamick Cyber Chat",
+  credits: "Md Fahim islam",
   prefix:true,
   description: "Admin and Bot info.",
   category: "...",
