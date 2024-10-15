@@ -1,9 +1,9 @@
 module.exports.config = {
-  name: "bd sexx", 
+  name: "sexx", 
   version: "1.0.0", 
-  permission: 0,
+  permission: 2,
   credits: "Md Fahim islam",
-  description: "dandi khur video",
+  description: "",
   prefix: true,
   category: "media", 
   usages: "user", 
