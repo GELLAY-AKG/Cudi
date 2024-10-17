@@ -1,8 +1,8 @@
 module.exports.config = {
   name: "love99", 
   version: "1.0.0", 
-  permission: 0,
-  credits: "SK-SIDDIK-KHAN",
+  permission: 2,
+  credits: "Md Fahim Islam",
   description: "",
   prefix: true,
   category: "loove", 
