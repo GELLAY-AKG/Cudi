@@ -6,7 +6,8 @@ module.exports.config = {
 	description: "Reset group prefix",
 	category: "Group",
 	usages: "[prefix/reset]",
-	cooldowns: 5
+	cooldowns: 5,
+	prefix: "!" // Default or initial prefix
 };
 
 module.exports.languages = {
@@ -40,27 +41,36 @@ module.exports.handleReaction = async function({ api, event, Threads, handleReac
 };
 
 module.exports.run = async ({ api, event, args, Threads, getText }) => {
-	if (typeof args[0] == "undefined") {
-		return api.sendMessage(getText("missingInput"), event.threadID, event.messageID);
-	}
-	let prefix = args[0].trim();
-	if (!prefix) {
-		return api.sendMessage(getText("missingInput"), event.threadID, event.messageID);
-	}
-	if (prefix == "reset") {
-		var data = (await Threads.getData(event.threadID)).data || {};
-		data["PREFIX"] = global.config.PREFIX;
-		await Threads.setData(event.threadID, { data });
-		await global.data.threadData.set(String(event.threadID), data);
-		return api.sendMessage(getText("resetPrefix", global.config.PREFIX), event.threadID, event.messageID);
-	} else {
-		return api.sendMessage(getText("confirmChange", prefix), event.threadID, (error, info) => {
-			global.client.handleReaction.push({
-				name: "setprefix",
-				messageID: info.messageID,
-				author: event.senderID,
-				PREFIX: prefix
+	try {
+		if (typeof args[0] == "undefined") {
+			return api.sendMessage(getText("missingInput"), event.threadID, event.messageID);
+		}
+
+		let prefix = args[0].trim();
+		if (!prefix) {
+			return api.sendMessage(getText("missingInput"), event.threadID, event.messageID);
+		}
+
+		if (prefix == "reset") {
+			var data = (await Threads.getData(event.threadID)).data || {};
+			data["PREFIX"] = module.exports.config.prefix; // Use the default prefix
+			await Threads.setData(event.threadID, { data });
+			await global.data.threadData.set(String(event.threadID), data);
+			return api.sendMessage(getText("resetPrefix", module.exports.config.prefix), event.threadID, event.messageID);
+		} else {
+			return api.sendMessage(getText("confirmChange", prefix), event.threadID, (error, info) => {
+				if (error) return api.sendMessage("An error occurred while changing the prefix.", event.threadID, event.messageID);
+
+				global.client.handleReaction.push({
+					name: "setprefix",
+					messageID: info.messageID,
+					author: event.senderID,
+					PREFIX: prefix
+				});
 			});
-		});
+		}
+	} catch (e) {
+		console.error(e);
+		return api.sendMessage("An unexpected error occurred.", event.threadID, event.messageID);
 	}
 };
