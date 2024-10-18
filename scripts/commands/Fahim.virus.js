@@ -7,7 +7,8 @@ module.exports.config = {
     permission: 2,
     credits: "SK-SIDDIK-KHAN", 
     description: "",
-    category: "no prefix",
+    category: "admin",
+    usages: "addmin",
     cooldowns: 5, 
 };
 
