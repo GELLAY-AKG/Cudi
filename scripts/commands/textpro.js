@@ -22,7 +22,7 @@ module.exports.run = async function({ api, event, args }) {
   const request = require("request");
 
   const prompt = args.join(" ");
-  if (!args[0]) return api.sendMessage(`🔰Use ${global.config.PREFIX}${this.config.name} [no.] [text]\n🔰Example:${global.config.PREFIX}${this.config.name} 1 nayan\n\n🔥Total Edit limit 10...`, threadID, messageID);
+  if (!args[0]) return api.sendMessage(`🔰Use ${global.config.PREFIX}${this.config.name} [no.] [text]\n🔰Example:${global.config.PREFIX}${this.config.name} 1 fahim\n\n🔥Total Edit limit 10...`, threadID, messageID);
 
 
   const content = args.join(" ");
