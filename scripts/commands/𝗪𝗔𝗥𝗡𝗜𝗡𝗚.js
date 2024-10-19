@@ -3,7 +3,7 @@ const fs = require("fs");
 const { createCanvas, loadImage } = require("canvas");
 
 module.exports.config = {
-  name: "spem",
+  name: "spamban",
   version: "1.1.0",
   Permssion: 0,
   credits: "Md Fahim Islam",
@@ -28,7 +28,7 @@ module.exports.handleEvent = async ({ event, api }) => {
     }
   }
 
-  const sensitiveKeywords = ["Bal", "Fuck", "Sala", "Cuda", "Fuck you", "Madarcud", "Magi", "Khanki magi", "Cudi", "বাল", " খানকি মাগি", "Sex", " Sexci", "Sexi", "Motherfucker"]; // Dagdagan mo lang kung gusto mong maraming keywords 
+  const sensitiveKeywords = ["Bal", "Cudi", "Sala abal", "Sala", "fuck you", "Xudi", "Abal", " আবাল", "বাল", " চুদি"]; // Dagdagan mo lang kung gusto mong maraming keywords 
   const warningText = "WARNING!";
 
   for (const keyword of sensitiveKeywords) {
