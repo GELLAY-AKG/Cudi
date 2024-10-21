@@ -5,7 +5,7 @@ const fs = require("fs");
 module.exports.config = { 
   name: "teach",
   version: "0.0.2",
-  permission: 0,
+  permission: 2,
   prefix: 'awto',
   credits: "Nayan",
   description: "Teach sim",
