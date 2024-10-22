@@ -7,15 +7,17 @@
   "notification": false,
   "approval": false,
   "saveState": true,
-  "BOTNAME": "Fahim-bot",
+  "banMsg": false,
+  "adminOnlyMsg": false,
+  "BOTNAME": "nayan-bot",
   "PREFIX": "/",
   "OPERATOR": [
-    "61559612854652",
-    "100046430705172"
+    "100014896964436",
+    "100000959749712"
   ],
   "ADMINBOT": [
-    "100046430705172",
-    "61559612854652"
+    "100000959749712",
+    ""
   ],
   "OWNER": ["100000959749712"], 
   "APPROVED": [],
