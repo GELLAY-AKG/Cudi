@@ -1,11 +1,11 @@
 module.exports.config = {
-  name: "@",
+  name: "x",
   version: "1.0.0",
   permission: 2,
   credits: "SK-SIDDIK-KHAN",
   description: "",
   prefix: true, 
-  category: "bdsex", 
+  category: "gffff", 
   usages: "user",
   cooldowns: 2,
   dependencies: {
