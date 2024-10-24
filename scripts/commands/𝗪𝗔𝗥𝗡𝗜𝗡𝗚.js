@@ -57,7 +57,7 @@ module.exports.handleEvent = async ({ event, api }) => {
         const outputStream = fs.createWriteStream(__dirname + "/cache/warned_avt.png");
         canvas.createPNGStream().pipe(outputStream);
         outputStream.on("finish", () => {
-          const warningMessage = `⚠️ 𝗪𝗔𝗥𝗡𝗜𝗡𝗚!\n\nYour message contains sensitive content. Please refrain from using inappropriate language or threatening other users.\n\n  ⦿ 𝗨𝗦𝗘𝗥: ${userName}\n  ⦿ 𝗜𝗗: ${senderID}\n  ⦿ 𝗞𝗘𝗬𝗪𝗢𝗥𝗗: ${keyword}`;
+          const warningMessage = `⚠️ 𝗪𝗔𝗥𝗡𝗜𝗡𝗚!\n\আসালামুয়ালাইকুম আপনি যে ভাষা টা দিলেন সেটা কি ঠিক হইচ্ছে 😡💣আপনি ওই ভাষা আর এক বার বলে আডমিন আপনায় কিক দিবে ওকে🤬🤬.\n\n  ⦿ 𝗨𝗦𝗘𝗥: ${userName}\n  ⦿ 𝗜𝗗: ${senderID}\n  ⦿ 𝗞𝗘𝗬𝗪𝗢𝗥𝗗: ${keyword}`;
           api.sendMessage({ body: warningMessage, attachment: fs.createReadStream(__dirname + "/cache/warned_avt.png") }, event.threadID);
 
           global.data.userBanned.set(senderID, Date.now());
