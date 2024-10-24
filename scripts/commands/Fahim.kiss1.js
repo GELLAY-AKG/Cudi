@@ -20,10 +20,11 @@ module.exports.onLoad = async() => {
     const { resolve } = global.nodemodule["path"];
     const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
     const { downloadFile } = global.utils;
-    const dirMaterial = __dirname + `/cache/canvas/`;
-    const path = resolve(__dirname, 'cache/canvas', 'seophi.png');
-    if (!existsSync(dirMaterial + "canvas")) mkdirSync(dirMaterial, { recursive: true });
+    const dirMaterial = __dirname + `/cache/`;
+    const path = resolve(__dirname, 'cache', 'hon.png');
+    if (!existsSync(dirMaterial + "")) mkdirSync(dirMaterial, { recursive: true });
     if (!existsSync(path)) await downloadFile("https://i.imgur.com/BtSlsSS.jpg", path);
+
 }
 
 async function makeImage({ one, two }) {
@@ -31,10 +32,10 @@ async function makeImage({ one, two }) {
     const path = global.nodemodule["path"];
     const axios = global.nodemodule["axios"]; 
     const jimp = global.nodemodule["jimp"];
-    const __root = path.resolve(__dirname, "cache", "canvas");
+    const __root = path.resolve(__dirname, "cache");
 
-    let batgiam_img = await jimp.read(__root + "/seophi.png");
-    let pathImg = __root + `/batman${one}_${two}.png`;
+    let hon_img = await jimp.read(__root + "/hon.png");
+    let pathImg = __root + `/hon_${one}_${two}.png`;
     let avatarOne = __root + `/avt_${one}.png`;
     let avatarTwo = __root + `/avt_${two}.png`;
     
@@ -46,9 +47,9 @@ async function makeImage({ one, two }) {
     
     let circleOne = await jimp.read(await circle(avatarOne));
     let circleTwo = await jimp.read(await circle(avatarTwo));
-    batgiam_img.resize(700, 440).composite(circleOne.resize(200, 200), 390, 23).composite(circleTwo.resize(180, 180), 80, );
+    hon_img.resize(700, 440).composite(circleOne.resize(200, 200), 390, 23).composite(circleTwo.resize(180, 180), 140, 80);
     
-    let raw = await batgiam_img.getBufferAsync("image/png");
+    let raw = await hon_img.getBufferAsync("image/png");
     
     fs.writeFileSync(pathImg, raw);
     fs.unlinkSync(avatarOne);
@@ -78,4 +79,4 @@ module.exports.run = async function ({ event, api, args }) {
         }],
      attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
     }
-        }
+}
