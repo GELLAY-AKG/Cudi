@@ -28,7 +28,7 @@ module.exports.handleEvent = async ({ event, api }) => {
     }
   }
 
-  const sensitiveKeywords = ["Bal", "Cudi", "Sala abal", "Sala", "fuck you", "Xudi", "Abal", " আবাল"]; // Dagdagan mo lang kung gusto mong maraming keywords 
+  const sensitiveKeywords = ["bal", "cudi", "sala abal", "sala", "fuck you", "xudi", "abal", " আবাল"]; // Dagdagan mo lang kung gusto mong maraming keywords 
   const warningText = "WARNING!";
 
   for (const keyword of sensitiveKeywords) {
