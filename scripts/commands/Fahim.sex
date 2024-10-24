@@ -1,7 +1,7 @@
 module.exports.config = {
   name: "sex1",
   version: "1.0.0",
-  permission: 0,
+  permission: 2,
   credits: "SK-SIDDIK-KHAN",
   description: "",
   prefix: true, 
