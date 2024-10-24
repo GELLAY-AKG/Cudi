@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "চুর",
+  name: "cur",
   version: "1.0.0",
   permission: 0,
   credits: "SIDDIK",
@@ -40,7 +40,7 @@ try {
 	ctx.drawImage(await Canvas.loadImage(avatar), 48, 410, 111, 111);
 	const imageBuffer = canvas.toBuffer();
 	fs.writeFileSync(path_toilet,imageBuffer);
-	 api.sendMessage({attachment: fs.createReadStream(path_toilet, {'highWaterMark': 128 * 1024}), body: "╭─────•◈•─────╮\n         🅂🄸🄳🄳🄸🄺🄱🄾🅃\n\nমুরগির ডিম চুরি করতে গিয়া ধরা থাইসে_ 🐸👻\n\n         𝗦𝗞.𝗦𝗜𝗗𝗗𝗜𝗞.𝗞𝗛𝗔𝗡       \n╰─────•◈•─────╯"}, event.threadID, () => fs.unlinkSync(path_toilet), event.messageID);
+	 api.sendMessage({attachment: fs.createReadStream(path_toilet, {'highWaterMark': 128 * 1024}), body: "╭─────•◈•─────╮\n         \n\nমুরগির ডিম চুরি করতে গিয়া ধরা থাইসে_ 🐸👻\n\n                \n╰─────•◈•─────╯"}, event.threadID, () => fs.unlinkSync(path_toilet), event.messageID);
 }
 catch(e) {api.sendMessage(e.stack, event.threadID )}
   }
